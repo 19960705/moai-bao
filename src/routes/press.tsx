@@ -147,6 +147,7 @@ function PressInner() {
           <Field label="负责人列" value={form.ownerField} onChange={(v) => setForm({ ...form, ownerField: v })} />
           <Field label="状态列" value={form.statusField} onChange={(v) => setForm({ ...form, statusField: v })} />
           <Field label="最后更新列" value={form.updatedField} onChange={(v) => setForm({ ...form, updatedField: v })} />
+          <Field label="截止日期列" value={form.deadlineField} onChange={(v) => setForm({ ...form, deadlineField: v })} />
         </div>
         <Field
           label="群机器人 Webhook（写回）"

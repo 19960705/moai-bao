@@ -13,6 +13,7 @@ export function MastheadBar() {
             默哀报
           </Link>
           <NavLink to="/watch">看片</NavLink>
+          <NavLink to="/guide">指南</NavLink>
           <NavLink to="/morgue">停尸房</NavLink>
           <NavLink to="/press">编辑部</NavLink>
         </nav>
@@ -46,7 +47,7 @@ function NavLink({
   to,
   children,
 }: {
-  to: "/morgue" | "/press" | "/watch";
+  to: "/morgue" | "/press" | "/watch" | "/guide";
   children: string;
 }) {
   return (
