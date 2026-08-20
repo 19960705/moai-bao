@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-paper: #f3ead4;
+  --color-paper-deep: #e7d9b8;
+  --color-ink: #1c1612;
+  --color-ink-soft: #4a4038;
+  --color-muted: #7a6e62;
+  --color-rule: #c9b99a;
+  --color-rule-strong: #1c1612;
+  --color-seal: #7a1f1f;
+  --color-seal-fg: #f3ead4;
+  --color-bg: #f3ead4;
+  --color-fg: #1c1612;
+  --color-surface: #efe4c9;
+  --color-border: #c9b99a;
+  --color-primary: #1c1612;
+  --color-primary-fg: #f3ead4;
+  --color-background: #f3ead4;
+  --color-foreground: #1c1612;
+  --color-card: #efe4c9;
+  --color-card-foreground: #1c1612;
+  --color-muted-foreground: #7a6e62;
+  --color-accent: #7a1f1f;
+  --color-accent-foreground: #f3ead4;
+  --color-destructive: #7a1f1f;
+  --color-input: #c9b99a;
+  --color-ring: #7a1f1f;
+
+  --font-display: "Playfair Display", "Noto Serif SC", "Songti SC", serif;
+  --font-serif: "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+  --font-sans: "Noto Serif SC", "Songti SC", serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius: 3px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  * {
+    border-color: var(--color-rule);
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-serif);
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Newsprint grain */
+.paper-grain {
+  position: relative;
+  isolation: isolate;
+}
+.paper-grain::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(circle at 1px 1px, #1c1612 0.35px, transparent 0.55px);
+  background-size: 3px 3px;
+}
+.paper-grain > * {
+  position: relative;
+  z-index: 1;
+}
+
+.oval-portrait {
+  clip-path: ellipse(42% 48% at 50% 48%);
+  filter: grayscale(0.35) contrast(1.06) sepia(0.12) brightness(1.08);
+}
+
+.seal {
+  font-family: var(--font-serif);
+  color: var(--color-seal);
+  border: 2px solid var(--color-seal);
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  transform: rotate(-18deg);
+  user-select: none;
+}
+
+.col-rule {
+  column-rule: 1px solid var(--color-rule);
+  column-gap: 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
